@@ -136,7 +136,7 @@ class openhab (
   }
 
   $addons = hiera('openhab_addons', {})
-  create_resources('addon', $addons)
+  create_resources('openhab::addon', $addons)
 
   file {'openhab.initd':
     ensure => present,
