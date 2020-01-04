@@ -1,7 +1,7 @@
 #class open:addons
 # == Define: define_name
 #
-define openhab::addon ($addon_version = $openhab::version, $sourceurl = $openhab::sourceurl) {
+define openhab::addon ($addon_version = $openhab::version, $sourceurl = $openhab::sourceurl, $persistfile_srcmodule = 'openhab' ) {
 
     file {"org.openhab.${name}-${addon_version}.jar":
       ensure  => present,
@@ -34,7 +34,7 @@ define openhab::addon ($addon_version = $openhab::version, $sourceurl = $openhab
       file {"${splitter[1]}.persist":
         ensure  => present,
         path    => "${openhab::install_dir}/configurations/persistence/${splitter[1]}.persist",
-        source  => "puppet:///modules/openhab/persistence/${splitter[1]}.persist",
+        source  => "puppet:///modules/${persistfile_srcmodule}/persistence/${splitter[1]}.persist",
         require => Archive['openhab-runtime'],
         notify  => Service['openhab'],
       }
