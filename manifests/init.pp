@@ -42,6 +42,7 @@ class openhab (
   $personalconfigmodule           = $::openhab::params::personalconfigmodule,
   $install_java                   = $::openhab::params::install_java,
   $install_habmin                 = $::openhab::params::install_habmin,
+  $install_greent                 = $::openhab::params::install_greent,
 
   $security_netmask               = $::openhab::params::security_netmask,
   $security_netmask_enable        = $::openhab::params::security_netmask_enable,
