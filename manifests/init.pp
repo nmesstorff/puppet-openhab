@@ -43,6 +43,7 @@ class openhab (
   $install_java                   = $::openhab::params::install_java,
   $install_habmin                 = $::openhab::params::install_habmin,
   $install_greent                 = $::openhab::params::install_greent,
+  $openhabcfg_template            = $::openhab::params::openhabcfg_template,
 
   $security_netmask               = $::openhab::params::security_netmask,
   $security_netmask_enable        = $::openhab::params::security_netmask_enable,
@@ -154,7 +155,7 @@ class openhab (
   file  {'openhab.cfg':
     ensure  => present,
     path    => "${install_dir}/configurations/openhab.cfg",
-    content => template('openhab/openhab.cfg.erb'),
+    content => template($openhabcfg_template),
     require => Archive['openhab-runtime'],
     notify  => Service['openhab'],
 } ->

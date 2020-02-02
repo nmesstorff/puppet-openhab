@@ -15,6 +15,7 @@ class openhab::params {
   $install_java                   = true
   $install_habmin                 = true
   $install_greent                 = true
+  $openhabcfg_template            = 'openhab/openhab.cfg.erb'
 
   $security_netmask_enable        = true
   $security_netmask               = false
